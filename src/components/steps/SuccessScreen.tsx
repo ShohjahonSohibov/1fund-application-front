@@ -16,7 +16,7 @@ export function SuccessScreen({ onComplete }: SuccessScreenProps) {
           <CheckCircle size={48} color="white" />
         </div>
         
-        <h2 className="mb-3" style={{ color: '#6C63FF' }}>Welcome to 1good Investors!</h2>
+        <h2 className="mb-3" style={{ color: '#6C63FF' }}>Welcome to 1fund!</h2>
         <p className="text-gray-600 mb-2">Your startup profile is ready.</p>
         <p className="text-sm text-gray-500">
           You can now connect with investors and start raising funds.
@@ -46,7 +46,7 @@ export function SuccessScreen({ onComplete }: SuccessScreenProps) {
         className="w-full py-3 rounded-xl text-white transition-all hover:shadow-lg flex items-center justify-center gap-2"
         style={{ backgroundColor: '#6C63FF' }}
       >
-        Go to Dashboard
+        We will reach out to you soon
         <ArrowRight size={20} />
       </button>
     </GlassCard>

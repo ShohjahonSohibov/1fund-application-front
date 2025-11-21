@@ -12,13 +12,11 @@ interface CreateAccountProps {
 export function CreateAccount({ onNext, onBack }: CreateAccountProps) {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [agreed, setAgreed] = useState(false);
 
   const handleSubmit = () => {
-    if (fullName && email && password && confirmPassword && agreed && password === confirmPassword) {
-      onNext({ fullName, email, password });
+    if (fullName && email && agreed) {
+      onNext({ fullName, email });
     }
   };
 
@@ -40,8 +38,8 @@ export function CreateAccount({ onNext, onBack }: CreateAccountProps) {
       </div>
 
       <Input
-        label="Full Name"
-        placeholder="John Doe"
+        label="Startup Name"
+        placeholder="OpenAI"
         value={fullName}
         onChange={setFullName}
         required
@@ -50,27 +48,9 @@ export function CreateAccount({ onNext, onBack }: CreateAccountProps) {
       <Input
         label="Work Email"
         type="email"
-        placeholder="john@startup.com"
+        placeholder="openai@startup.com"
         value={email}
         onChange={setEmail}
-        required
-      />
-
-      <Input
-        label="Password"
-        type="password"
-        placeholder="••••••••"
-        value={password}
-        onChange={setPassword}
-        required
-      />
-
-      <Input
-        label="Confirm Password"
-        type="password"
-        placeholder="••••••••"
-        value={confirmPassword}
-        onChange={setConfirmPassword}
         required
       />
 
@@ -90,7 +70,7 @@ export function CreateAccount({ onNext, onBack }: CreateAccountProps) {
 
       <button
         onClick={handleSubmit}
-        disabled={!fullName || !email || !password || !confirmPassword || !agreed || password !== confirmPassword}
+        disabled={!fullName || !email || !agreed}
         className="w-full py-3 rounded-xl text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg"
         style={{ backgroundColor: '#6C63FF' }}
       >
@@ -99,3 +79,4 @@ export function CreateAccount({ onNext, onBack }: CreateAccountProps) {
     </GlassCard>
   );
 }
+

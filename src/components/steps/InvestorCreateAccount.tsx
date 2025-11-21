@@ -12,13 +12,11 @@ interface InvestorCreateAccountProps {
 export function InvestorCreateAccount({ onNext, onBack }: InvestorCreateAccountProps) {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [agreed, setAgreed] = useState(false);
 
   const handleSubmit = () => {
-    if (fullName && email && password && confirmPassword && agreed && password === confirmPassword) {
-      onNext({ fullName, email, password });
+    if (fullName && email && agreed) {
+      onNext({ fullName, email });
     }
   };
 
@@ -56,24 +54,6 @@ export function InvestorCreateAccount({ onNext, onBack }: InvestorCreateAccountP
         required
       />
 
-      <Input
-        label="Password"
-        type="password"
-        placeholder="••••••••"
-        value={password}
-        onChange={setPassword}
-        required
-      />
-
-      <Input
-        label="Confirm Password"
-        type="password"
-        placeholder="••••••••"
-        value={confirmPassword}
-        onChange={setConfirmPassword}
-        required
-      />
-
       <div className="mb-6">
         <label className="flex items-start gap-2 cursor-pointer">
           <input
@@ -90,7 +70,7 @@ export function InvestorCreateAccount({ onNext, onBack }: InvestorCreateAccountP
 
       <button
         onClick={handleSubmit}
-        disabled={!fullName || !email || !password || !confirmPassword || !agreed || password !== confirmPassword}
+        disabled={!fullName || !email || !agreed}
         className="w-full py-3 rounded-xl text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg"
         style={{ backgroundColor: '#6C63FF' }}
       >
@@ -99,3 +79,4 @@ export function InvestorCreateAccount({ onNext, onBack }: InvestorCreateAccountP
     </GlassCard>
   );
 }
+

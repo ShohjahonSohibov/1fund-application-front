@@ -9,7 +9,7 @@ export function AccountTypeSelection({ onSelect }: AccountTypeSelectionProps) {
   return (
     <GlassCard className="max-w-2xl w-full">
       <div className="text-center mb-10">
-        <h1 className="mb-3" style={{ color: '#6C63FF' }}>Join 1good Investors</h1>
+        <h1 className="mb-3" style={{ color: '#6C63FF' }}>Join Us</h1>
         <p className="text-gray-600">Choose your account type to get started</p>
       </div>
       

@@ -16,7 +16,7 @@ export function InvestorSuccessScreen({ onComplete }: InvestorSuccessScreenProps
           <CheckCircle size={48} color="white" />
         </div>
         
-        <h2 className="mb-3" style={{ color: '#6C63FF' }}>Welcome to 1good Investors.</h2>
+        <h2 className="mb-3" style={{ color: '#6C63FF' }}>Welcome to 1fund.</h2>
         <p className="text-gray-600 mb-2">You can now discover startups raising capital.</p>
         <p className="text-sm text-gray-500">
           Start exploring investment opportunities and connect with founders.
@@ -46,9 +46,10 @@ export function InvestorSuccessScreen({ onComplete }: InvestorSuccessScreenProps
         className="w-full py-3 rounded-xl text-white transition-all hover:shadow-lg flex items-center justify-center gap-2"
         style={{ backgroundColor: '#6C63FF' }}
       >
-        Go to Dashboard
+        We will reach out to you soon
         <ArrowRight size={20} />
       </button>
     </GlassCard>
   );
 }
+

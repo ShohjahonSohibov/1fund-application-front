@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import axios from "axios";
+import { API_URL } from "./config";
 import { AccountTypeSelection } from "./components/steps/AccountTypeSelection";
 import { CreateAccount } from "./components/steps/CreateAccount";
 import { StartupBasicInfo } from "./components/steps/StartupBasicInfo";
@@ -19,6 +21,7 @@ export default function App() {
     "startup" | "investor" | null
   >(null);
   const [formData, setFormData] = useState<any>({});
+  const submittedRef = useRef(false);
 
   const handleAccountTypeSelect = (
     type: "startup" | "investor",
@@ -39,13 +42,39 @@ export default function App() {
     if (currentStep === 1) {
       setAccountType(null);
     }
+    if (currentStep === 6) {
+      submittedRef.current = false;
+    }
   };
 
-  const handleComplete = () => {
-    console.log("Signup complete!", formData);
-    // In a real app, this would navigate to the dashboard
-    alert(`Welcome to 1good Investors! 🚀`);
+  const handleComplete = async () => {
+    try {
+      const payload = {
+        accountType,
+        ...formData,
+      };
+      
+      const res = await axios.post(
+        API_URL,
+        payload,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log("res:", res);
+    } catch (err) {
+      console.error("Failed to submit application", err);
+    }
   };
+
+  useEffect(() => {
+    if (currentStep === 6 && !submittedRef.current) {
+      submittedRef.current = true;
+      handleComplete();
+    }
+  }, [currentStep]);
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-12">
@@ -59,7 +88,7 @@ export default function App() {
             <span className="text-white text-xl">1</span>
           </div>
           <span className="text-white text-xl hidden md:inline">
-            1good Investors
+            1fund
           </span>
         </div>
       </div>

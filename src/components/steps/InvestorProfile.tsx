@@ -11,6 +11,12 @@ interface InvestorProfileProps {
 }
 
 const countries = [
+  'Uzbekistan',
+  'Kazakhstan',
+  'Kyrgyzstan',
+  'Tajikistan',
+  'Turkmenistan',
+  'Russia',
   'United States',
   'United Kingdom',
   'Canada',

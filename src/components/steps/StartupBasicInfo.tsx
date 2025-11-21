@@ -33,14 +33,21 @@ const stages = [
 ];
 
 const countries = [
+  'Uzbekistan',
+  'Kazakhstan',
+  'Kyrgyzstan',
+  'Tajikistan',
+  'Turkmenistan',
+  'Russia',
   'United States',
   'United Kingdom',
-  'Uzbekistan',
-  'India',
+  'Canada',
+  'Germany',
+  'France',
   'Singapore',
   'UAE',
-  'Germany',
-  'Canada',
+  'India',
+  'Australia',
   'Other'
 ];
 
