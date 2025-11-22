@@ -1,4 +1,4 @@
-import { CheckCircle, ArrowRight } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 import { GlassCard } from '../GlassCard';
 
 interface InvestorSuccessScreenProps {
@@ -40,15 +40,9 @@ export function InvestorSuccessScreen({ onComplete }: InvestorSuccessScreenProps
           </li>
         </ul>
       </div>
-
-      <button
-        onClick={onComplete}
-        className="w-full py-3 rounded-xl text-white transition-all hover:shadow-lg flex items-center justify-center gap-2"
-        style={{ backgroundColor: '#6C63FF' }}
-      >
+      <p className="text-sm text-gray-600">
         We will reach out to you soon
-        <ArrowRight size={20} />
-      </button>
+      </p>
     </GlassCard>
   );
 }
