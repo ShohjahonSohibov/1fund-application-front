@@ -53,6 +53,7 @@ export default function App() {
         accountType,
         ...formData,
       };
+      console.log("payload:", payload);
       
       const res = await axios.post(
         API_URL,
